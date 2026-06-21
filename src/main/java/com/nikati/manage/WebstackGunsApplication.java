@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * 
@@ -16,6 +17,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 *
  */
 @SpringBootApplication(exclude = WebAutoConfiguration.class)
+@EnableSwagger2
 public class WebstackGunsApplication {
 
     private final static Logger logger = LoggerFactory.getLogger(WebstackGunsApplication.class);

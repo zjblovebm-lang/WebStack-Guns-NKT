@@ -185,7 +185,26 @@ public class ShiroConfig {
         hashMap.put("/", "anon");
         hashMap.put("/search/**", "anon");
         hashMap.put("/about", "anon");
+
+
+        // swagger放行
+        hashMap.put("/swagger-ui.html", "anon");
+        hashMap.put("/swagger-resources/**", "anon");
+        hashMap.put("/v2/api-docs", "anon");
+        hashMap.put("/v3/api-docs/**", "anon");
+        hashMap.put("/webjars/**", "anon");
+
+        hashMap.put("/xui/**", "anon");
+
+        hashMap.put("/nyunpass/**", "anon");
+        hashMap.put("/customer/**", "anon");
+
         hashMap.put("/**", "user");
+
+
+
+
+
         shiroFilter.setFilterChainDefinitionMap(hashMap);
         return shiroFilter;
     }
