@@ -3,6 +3,7 @@ package com.nikati.manage;
 import cn.stylefeng.roses.core.config.WebAutoConfiguration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.actuate.autoconfigure.metrics.cache.CacheMetricsAutoConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -16,7 +17,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  *@version 1.0
 *
  */
-@SpringBootApplication(exclude = WebAutoConfiguration.class)
+@SpringBootApplication(exclude = {WebAutoConfiguration.class, CacheMetricsAutoConfiguration.class})
 @EnableSwagger2
 public class WebstackGunsApplication {
 

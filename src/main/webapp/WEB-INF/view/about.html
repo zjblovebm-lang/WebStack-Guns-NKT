@@ -1,91 +1,51 @@
 <!DOCTYPE html>
 <html lang="zh">
-
 @include("/common/_header.html"){}
-
-<body class="page-body boxed-container">
-	<nav class="navbar horizontal-menu navbar-fixed-top">
+<body class="page-body boxed-container anyun-page">
+	<nav class="navbar horizontal-menu navbar-fixed-top anyun-topbar">
 		<div class="navbar-inner">
 			<div class="navbar-brand">
-				<a href="/" class="logo"> <img
-					src="/static/img/logo2x2.png" width="100%" alt=""
-					class="hidden-xs"> <img src="/static/img/logo2x.png"
-					width="100%" alt="" class="visible-xs">
+				<a href="/" class="logo anyun-logo-text" style="color:#182033;">
+					<strong>安云科技</strong>
+					<span style="color:#667085;">TK Service Hub</span>
 				</a>
 			</div>
 			<div class="navbar-mobile-clear"></div>
 		</div>
 	</nav>
 	<div class="page-container">
-		<!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
-		<div class="main-content" style="">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="panel panel-default">
-						<!-- 关于项目 -->
-						<h4 class="text-gray">关于项目</h4>
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-sm-12">
-									<blockquote>
-										<p>恭喜你发现彩蛋</p>
-										</br>
-										<p>这是一个导航网站,收入了大部分常用的网站，希望能够解决到你频繁收藏网站的烦恼！</p>
-										<p>如果你有更好的网站或者提议请联系我！</p>
-									</blockquote>
-								</div>
-							</div>
-							<!-- 关于作者 -->
-							<h4 class="text-gray">关于作者</h4>
-							<div class="row">
-								<div class="col-sm-4">
-									<div class="xe-widget xe-conversations box2 label-info"
-										onclick="window.open('http://wpa.qq.com/msgrd?v=3&uin=2718064712&site=qq&menu=yes', '_self')"
-										data-toggle="tooltip" data-placement="bottom" title=""
-										>
-										<div class="xe-comment-entry">
-											<a class="xe-user-img"> <img
-												src="http://cdns.zywhs.club/42730561c0b2c532.jpg"
-												class="img-circle" width="40">
-											</a>
-											<div class="xe-comment">
-												<a href="#" class="xe-user-name overflowClip_1"> <strong>Nikati</strong>
-												</a>
-												<p class="overflowClip_2">838486863\@qq.com</p>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-8">
-									<div class="row">
-										<div class="col-sm-12">
-											<br />
-											<blockquote>
-												<p>这是一个导航网站 。如果你有更好的想法或需求，可以通过邮件与我联系，欢迎与我交流分享。</p>
-												<p>
-													<a href="https://github.com/Nikati/WebStack-Guns-NKT"
-														marked="1"> GitHub开源项目 </a>
-												</p>
-											</blockquote>
-										</div>
-									</div>
-									<br>
-								</div>
-							</div>
-						</div>
+		<div class="main-content anyun-main" style="padding-top: 80px;">
+			<section class="anyun-hero" style="grid-template-columns: 1fr;">
+				<div class="anyun-hero-content">
+					<div class="anyun-eyebrow">About Anyun</div>
+					<h1>安云科技，一站式 TK 服务平台</h1>
+					<p>围绕 TikTok 跨境电商与直播业务，提供实战陪跑、直播网络、跨境设备、独立站搭建和行业资讯服务，帮助商家完成从账号搭建到稳定增长的全流程落地。</p>
+					<div class="anyun-hero-actions">
+						<a href="/" class="btn anyun-btn-primary">返回首页</a>
+						<a href="/blackboard" class="btn anyun-btn-ghost">查看公告</a>
 					</div>
 				</div>
-			</div>
-			<!-- Main Footer -->
-			<footer class="main-footer sticky footer-type-1 fixed">
+			</section>
+
+			<section class="anyun-section">
+				<div class="anyun-section-head">
+					<div>
+						<span class="anyun-eyebrow">Capabilities</span>
+						<h2>核心能力</h2>
+					</div>
+				</div>
+				<div class="row anyun-service-row">
+					<div class="col-md-3 col-sm-6"><div class="anyun-service-card"><i class="fa fa-rocket"></i><h3>实战陪跑</h3><p>覆盖账号注册、内容制作、直播排期、投放复盘和团队训练。</p><span>TikTok Growth</span></div></div>
+					<div class="col-md-3 col-sm-6"><div class="anyun-service-card"><i class="fa fa-signal"></i><h3>直播网络</h3><p>提供低延迟、独享 IP、多直播间矩阵网络部署与稳定性保障。</p><span>Live Network</span></div></div>
+					<div class="col-md-3 col-sm-6"><div class="anyun-service-card"><i class="fa fa-shopping-cart"></i><h3>设备交付</h3><p>软路由、直播设备、运营工具及配套配置一站式交付。</p><span>Device Supply</span></div></div>
+					<div class="col-md-3 col-sm-6"><div class="anyun-service-card"><i class="fa fa-globe"></i><h3>网站搭建</h3><p>支持品牌官网、跨境独立站、电商商城和广告落地页快速上线。</p><span>Website Build</span></div></div>
+				</div>
+			</section>
+
+			<footer class="main-footer sticky footer-type-1 anyun-footer">
 				<div class="footer-inner">
-					<div class="footer-text">
-						&copy; 2019 <a href="/"><strong>小毛驴</strong></a> design by <strong>Nikati</strong></a>
-					</div>
-					<div class="go-up">
-						<a href="#" rel="go-top"> <i class="fa-angle-up"></i>
-						</a>
-					</div>
+					<div class="footer-text">&copy; 2026 <a href="/"><strong>安云科技</strong></a> 一站式 TK 服务平台</div>
+					<div class="go-up"><a href="#" rel="go-top"><i class="fa-angle-up"></i></a></div>
 				</div>
 			</footer>
 		</div>

@@ -1,15 +1,33 @@
 @layout("/common/_container.html"){
-<div class="container-fluid" style="padding: 0 !important;">
-	<div class="row">
-		<div class="col-sm-12">
+<div class="container-fluid anyun-page" style="padding: 0 !important;">
+	<section class="anyun-section" style="padding-top: 0;">
+		<div class="anyun-section-head">
+			<div>
+				<span class="anyun-eyebrow">Notice</span>
+				<h2>安云公告</h2>
+			</div>
+			<a href="/" class="anyun-more">返回首页 <i class="fa fa-angle-right"></i></a>
+		</div>
+		<div class="row">
+			@if(isNotEmpty(noticeList)){
 			@for(notice in noticeList){
-			<div class="alert alert-success alert-dismissable">
-				<button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-				${notice.content}
+			<div class="col-md-4 col-sm-6">
+				<article class="anyun-news-card">
+					<span>平台公告</span>
+					<h3>${notice.title}</h3>
+					<p>${notice.content}</p>
+				</article>
+			</div>
+			@}
+			@}else{
+			<div class="col-sm-12">
+				<div class="anyun-empty-state">
+					<h4>暂无公告</h4>
+					<p>后续可在后台通知管理中发布服务更新、平台规则和行业资讯。</p>
+				</div>
 			</div>
 			@}
 		</div>
-
-	</div>
+	</section>
 </div>
 @}
