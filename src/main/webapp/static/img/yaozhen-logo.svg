@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 330 88" role="img" aria-labelledby="title desc">
+  <title id="title">尧瑧科技</title>
+  <desc id="desc">尧瑧科技霓虹科技风品牌标志</desc>
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="82" y2="82" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07152f"/>
+      <stop offset="1" stop-color="#16092f"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="16" y1="18" x2="72" y2="72" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#23e6ff"/>
+      <stop offset=".52" stop-color="#6567ff"/>
+      <stop offset="1" stop-color="#ff3fd1"/>
+    </linearGradient>
+    <linearGradient id="word" x1="105" y1="21" x2="298" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#121a31"/>
+      <stop offset=".58" stop-color="#4b3fe6"/>
+      <stop offset="1" stop-color="#d925b9"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.1" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect x="3" y="3" width="82" height="82" rx="23" fill="url(#bg)"/>
+  <path d="M17 20h13l14 16 14-16h13L50 46v21H39V46z" fill="none" stroke="url(#neon)" stroke-width="6" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M24 62h39L29 26h36" fill="none" stroke="url(#neon)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <text x="103" y="53" fill="url(#word)" font-family="'Microsoft YaHei','PingFang SC',sans-serif" font-size="35" font-weight="800" letter-spacing="3">尧瑧科技</text>
+  <text x="106" y="73" fill="#7f8495" font-family="Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="3.6">YAOZHEN TECH</text>
+</svg>

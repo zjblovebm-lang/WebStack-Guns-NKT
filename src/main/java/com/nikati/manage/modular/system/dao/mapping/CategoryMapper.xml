@@ -30,7 +30,7 @@
         select
         id,title,sort,icon,create_time createTime,parent_id parentId,levels
         from category
-        order by sort
+        order by sort, id
     </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -79,7 +79,7 @@
         select
         id,title name,sort num,icon,create_time createTime,parent_id parentId,levels,1 ismenu
         from category
-        order by sort
+        order by sort, id
     </select>
 
 

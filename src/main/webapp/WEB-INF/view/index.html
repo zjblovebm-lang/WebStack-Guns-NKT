@@ -1,184 +1,203 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-Hans" class="io-grey-mode">
 @include("/common/_header.html"){}
-<body class="page-body anyun-page">
-	<div class="page-container anyun-layout">
+<body class="home page-body anyun-page">
+	<div class="anyun-shell">
 		@include("/common/_sidebar.html"){}
 
-		<div class="main-content anyun-main">
-			<nav class="navbar user-info-navbar anyun-topbar" role="navigation">
-				<ul class="user-info-menu left-links list-inline list-unstyled">
-					<li class="hidden-sm hidden-xs"><a href="#" data-toggle="sidebar"><i class="fa-bars"></i></a></li>
-					<li><a class="anyun-nav-link smooth" href="#服务矩阵">服务矩阵</a></li>
-					<li><a class="anyun-nav-link smooth" href="#资源导航">资源导航</a></li>
-					<li><a class="anyun-nav-link smooth" href="#每日资讯">每日资讯</a></li>
-				</ul>
-				<ul class="user-info-menu right-links list-inline list-unstyled hidden-xs">
-					<li><a href="/about" class="anyun-contact">合作咨询</a></li>
-				</ul>
-			</nav>
+		<main class="anyun-main">
+			<header class="anyun-header">
+				<button class="anyun-sidebar-toggle" type="button" aria-label="切换侧栏"><i class="fa fa-bars"></i></button>
+				<a href="/" class="anyun-mobile-logo">
+					<img src="/static/img/yaozhen-logo.svg" alt="尧瑧科技">
+				</a>
+				<nav class="anyun-top-menu">
+					<a class="active" href="/"><i class="fa fa-home"></i>项目导航</a>
+					<a href="https://anyun.online/hotnews/" target="_blank"><i class="fa fa-bullhorn"></i>今日热榜</a>
+					<a href="https://yaozhen.xcai1618.com" target="_blank"><i class="fa fa-microphone"></i>Ai 语音</a>
+					<a href="https://account.anyun.info/" target="_blank"><i class="fa fa-shopping-cart"></i>账号商城</a>
+					<a href="https://blog.anyun.info" target="_blank"><i class="fa fa-book"></i>教程与文档</a>
+					<a href="https://anyun.online/news" target="_blank"><i class="fa fa-rss"></i>出海资讯</a>
+				</nav>
+			</header>
 
-			<section class="anyun-hero">
-				<div class="anyun-hero-content">
-					<div class="anyun-eyebrow">一站式 TK 服务</div>
-					<h1>安云科技跨境服务导航平台</h1>
-					<p>聚合 TikTok 跨境运营、直播网络、设备商城、独立站搭建与行业资讯，帮助团队更快搭建、更稳开播、更高效增长。</p>
-					<div id="search" class="s-search anyun-search">
-						<div id="search-list" class="hide-type-list">
-							<div class="s-type">
-								<span></span>
-								<div class="s-type-list animated fadeInUp">
-									<label for="type-zhannei">站内</label>
-									<label for="type-baidu">百度</label>
-									<label for="type-google">Google</label>
-								</div>
-							</div>
-							<div class="search-group group-a s-current">
-								<span class="type-text">搜索</span>
-								<ul class="search-type">
-									<li><input checked hidden type="radio" name="type" id="type-zhannei" value="/search/" data-placeholder="搜索 TK 服务、工具、资讯"><label for="type-zhannei"><span>站内</span></label></li>
-									<li><input hidden type="radio" name="type" id="type-baidu" value="https://www.baidu.com/s?wd=" data-placeholder="百度搜索"><label for="type-baidu"><span>百度</span></label></li>
-									<li><input hidden type="radio" name="type" id="type-google" value="https://www.google.com/search?q=" data-placeholder="Google 搜索"><label for="type-google"><span>Google</span></label></li>
-								</ul>
-							</div>
-						</div>
-						<form action="?s=" method="get" target="_blank" id="super-search-fm">
-							<input type="text" id="search-text" placeholder="搜索 TK 服务、工具、资讯" style="outline: 0">
-							<button type="submit"><i class="fa fa-search"></i></button>
-						</form>
-						<div class="set-check hidden-xs">
-							<input type="checkbox" id="set-search-blank" class="bubble-3" autocomplete="off">
-						</div>
+			<section class="anyun-banner">
+				<canvas id="anyun-particle-canvas" class="anyun-canvas" aria-hidden="true"></canvas>
+				<div class="anyun-search-wrap">
+					<div class="anyun-search-tabs">
+						<button type="button" class="active" data-group="search">搜索</button>
+						<button type="button" data-group="ip">IP查询</button>
 					</div>
-					<div class="anyun-hero-actions">
-						<a href="#服务矩阵" class="btn anyun-btn-primary smooth">查看服务</a>
-						<a href="#资源导航" class="btn anyun-btn-ghost smooth">资源导航</a>
+					<form id="anyun-search-form" class="anyun-search-form" action="https://www.baidu.com/s" method="get" target="_blank">
+						<input id="anyun-search-input" name="wd" type="text" placeholder="输入关键字搜索" autocomplete="off">
+						<button type="submit" aria-label="搜索"><i class="fa fa-search"></i></button>
+					</form>
+					<div class="anyun-search-engines" data-group-panel="search">
+						<button type="button" class="active" data-action="https://www.baidu.com/s" data-name="wd" data-placeholder="百度一下">百度</button>
+						<button type="button" data-action="https://www.google.com/search" data-name="q" data-placeholder="谷歌两下">谷歌</button>
+						<button type="button" data-action="https://fanyi.baidu.com/#auto/zh/" data-name="" data-placeholder="输入翻译内容（自动检测语言）">翻译</button>
 					</div>
-				</div>
-				<div class="anyun-hero-panel">
-					<div class="anyun-panel-title">跨境增长工作台</div>
-					<div class="anyun-stat-grid">
-						<div><strong>${stats.serviceCount}</strong><span>核心服务</span></div>
-						<div><strong>${stats.categoryCount}</strong><span>资源分类</span></div>
-						<div><strong>${stats.siteCount}</strong><span>精选资源</span></div>
+					<div class="anyun-search-engines is-hidden" data-group-panel="ip">
+						<button type="button" data-action="https://ping0.cc/ip/" data-name="" data-placeholder="请输入IP / 网址">纯净度检测</button>
+						<button type="button" data-action="https://www.itdog.cn/ping/" data-name="" data-placeholder="请输入IP / 网址">Ping测试</button>
+						<button type="button" data-action="https://www.icpapi.com/" data-name="" data-placeholder="请输入IP / 网址">备案查询</button>
 					</div>
-					<ul class="anyun-check-list">
-						<li><i class="fa fa-check-circle"></i> 账号搭建与内容运营陪跑</li>
-						<li><i class="fa fa-check-circle"></i> 直播间网络与设备交付</li>
-						<li><i class="fa fa-check-circle"></i> 独立站/落地页快速上线</li>
-					</ul>
 				</div>
 			</section>
 
-			<section class="anyun-section" id="服务矩阵">
-				<div class="anyun-section-head">
-					<div>
-						<span class="anyun-eyebrow">Services</span>
-						<h2>围绕 TikTok 出海的服务矩阵</h2>
-					</div>
-					<a href="/about" class="anyun-more">合作咨询 <i class="fa fa-angle-right"></i></a>
-				</div>
-				<div class="row anyun-service-row">
-					@for(card in serviceCards){
-					<div class="col-md-3 col-sm-6">
-						<div class="anyun-service-card">
-							<i class="fa ${card.icon}"></i>
-							<h3>${card.title}</h3>
-							<p>${card.description}</p>
-							<span>${card.action}</span>
-						</div>
-					</div>
-					@}
-				</div>
-			</section>
-
-			<section class="anyun-section" id="资源导航">
-				<div class="anyun-section-head">
-					<div>
-						<span class="anyun-eyebrow">Navigation</span>
-						<h2>跨境运营资源导航</h2>
-					</div>
-					<p>按业务场景整理工具、平台与案例资源。</p>
-				</div>
-				@include("/common/_content.html"){}
-			</section>
-
-			<section class="anyun-section anyun-news-section" id="每日资讯">
-				<div class="anyun-section-head">
-					<div>
-						<span class="anyun-eyebrow">News</span>
-						<h2>每日资讯与公告</h2>
-					</div>
-					<a href="/blackboard" class="anyun-more">查看全部 <i class="fa fa-angle-right"></i></a>
-				</div>
-				<div class="row">
-					@if(isNotEmpty(noticeList)){
+			@if(isNotEmpty(noticeList)){
+			<section class="anyun-bulletin">
+				<i class="fa fa-volume-up"></i>
+				<div class="anyun-bulletin-list">
 					@for(notice in noticeList){
-					<div class="col-md-4 col-sm-6">
-						<article class="anyun-news-card">
-							<span>安云公告</span>
-							<h3>${notice.title}</h3>
-							<p>${notice.content}</p>
-						</article>
-					</div>
-					@}
-					@}else{
-					<div class="col-md-4 col-sm-6">
-						<article class="anyun-news-card">
-							<span>每日资讯</span>
-							<h3>TikTok 跨境直播增长观察</h3>
-							<p>持续关注平台政策、选品趋势、直播玩法和广告投放变化。</p>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<article class="anyun-news-card">
-							<span>案例复盘</span>
-							<h3>直播间网络稳定性优化</h3>
-							<p>围绕低延迟、高画质、独享 IP 和多直播间矩阵进行方案拆解。</p>
-						</article>
-					</div>
-					<div class="col-md-4 col-sm-6">
-						<article class="anyun-news-card">
-							<span>服务更新</span>
-							<h3>独立站与落地页交付升级</h3>
-							<p>支持品牌官网、电商商城、多语言页面和广告追踪代码接入。</p>
-						</article>
-					</div>
+					<a href="/blackboard">${notice.title}</a>
 					@}
 				</div>
+				<a href="/blackboard" class="anyun-bulletin-more">更多 <i class="fa fa-angle-right"></i></a>
 			</section>
+			@}
 
-			<footer class="main-footer sticky footer-type-1 anyun-footer">
-				<div class="footer-inner">
-					<div class="footer-text">&copy; 2026 <a href="/"><strong>安云科技</strong></a> 一站式 TK 服务平台</div>
-					<div class="go-up"><a href="#" rel="go-top"><i class="fa-angle-up"></i></a></div>
+			<div class="anyun-content">
+				@include("/common/_content.html"){}
+			</div>
+
+			<footer class="anyun-footer">
+				<div class="anyun-footer-card">
+					<div class="anyun-footer-brand">
+						<img src="/static/img/yaozhen-logo.svg" alt="尧瑧科技">
+					</div>
+					<div class="anyun-footer-center">
+						<div class="anyun-footer-links">
+							<a href="/">项目导航</a>
+							<a href="https://anyun.online/run" target="_blank">实战陪跑</a>
+							<a href="https://blog.anyun.info" target="_blank">教程导航</a>
+							<a href="https://anyun.online/news" target="_blank">每日资讯</a>
+							<a href="https://account.anyun.info" target="_blank">账号商城</a>
+							<a href="https://anyun.online/shop" target="_blank">硬件商城</a>
+						</div>
+						<div class="anyun-social">
+							<a href="mailto:anyunkeji&#64;outlook.com" title="Email"><i class="fa fa-envelope"></i></a>
+							<a href="https://t.me/anyunkuajing" target="_blank" title="Telegram"><i class="fa fa-paper-plane"></i></a>
+						</div>
+					</div>
+					<div class="anyun-qrs">
+						<div><img src="https://anyun.online/wp-content/uploads/2025/04/IMG_20250407_123930.jpg" alt="扫码加微信"><span>扫码加微信</span></div>
+						<div><img src="https://anyun.online/wp-content/uploads/2025/04/IMG_20250407_123952.jpg" alt="扫码加微信"><span>扫码加微信</span></div>
+					</div>
+					<div class="anyun-copyright">Copyright © 2026 <a href="/">尧瑧科技</a>&nbsp; <a href="https://beian.miit.gov.cn/" target="_blank">苏ICP备2025167723号-1</a></div>
 				</div>
 			</footer>
-		</div>
+		</main>
 	</div>
 
-	<script type="text/javascript">
-	!function(){function g(){h(),i(),j(),k()}function h(){d.checked=s()}function i(){var b=document.querySelector('input[name="type"][value="'+p()+'"]');b&&(b.checked=!0,l(b))}function j(){v(u())}function k(){w(t())}function l(a){for(var b=0;b<e.length;b++)e[b].classList.remove("s-current");a.parentNode.parentNode.parentNode.classList.add("s-current")}function m(a,b){window.localStorage.setItem("superSearch"+a,b)}function n(a){return window.localStorage.getItem("superSearch"+a)}function o(a){f=a.target,v(u()),w(a.target.value),m("type",a.target.value),c.focus(),l(a.target)}function p(){var b=n("type");return b||a[0].value}function q(a){m("newWindow",a.target.checked?1:-1),x(a.target.checked)}function r(a){return a.preventDefault(),""==c.value?(c.focus(),!1):(w(t()+c.value),x(s()),s()?window.open(b.action,+new Date):location.href=b.action,void 0)}function s(){var a=n("newWindow");return a?1==a:!0}function t(){return document.querySelector('input[name="type"]:checked').value}function u(){return document.querySelector('input[name="type"]:checked').getAttribute("data-placeholder")}function v(a){c.setAttribute("placeholder",a)}function w(a){b.action=a}function x(a){a?b.target="_blank":b.removeAttribute("target")}var y,a=document.querySelectorAll('input[name="type"]'),b=document.querySelector("#super-search-fm"),c=document.querySelector("#search-text"),d=document.querySelector("#set-search-blank"),e=document.querySelectorAll(".search-group"),f=a[0];for(g(),y=0;y<a.length;y++)a[y].addEventListener("change",o);d.addEventListener("change",q),b.addEventListener("submit",r)}();
-	$(function() {$('img').lazyload({ threshold :180});});
-	$(document).ready(function() {
-		$(document).on('click', '.has-sub', function() {
-			var _this = $(this);
-			if (!$(this).hasClass('expanded')) {
-				setTimeout(function() {_this.find('ul').attr('style', '')}, 300);
+	<button class="anyun-go-top" type="button" aria-label="返回顶部"><i class="fa fa-angle-up"></i></button>
+	<div class="anyun-overlay"></div>
+
+	<script src="/static/js/anyun-canvas.js"></script>
+	<script>
+	(function () {
+		var body = document.body;
+		var sidebarToggle = document.querySelector('.anyun-sidebar-toggle');
+		var sidebarLogo = document.querySelector('.anyun-sidebar-logo > a');
+		var overlay = document.querySelector('.anyun-overlay');
+		var goTop = document.querySelector('.anyun-go-top');
+		var form = document.getElementById('anyun-search-form');
+		var input = document.getElementById('anyun-search-input');
+
+		function isMobile() { return window.matchMedia('(max-width: 767px)').matches; }
+		function closeSidebar() { body.classList.remove('anyun-sidebar-open'); }
+		function updateSidebarState() {
+			var expanded = isMobile()
+				? body.classList.contains('anyun-sidebar-open')
+				: !body.classList.contains('anyun-sidebar-collapsed');
+			sidebarToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+			sidebarLogo.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+		}
+		function toggleSidebar() {
+			if (isMobile()) {
+				if (body.classList.contains('anyun-sidebar-open')) {
+					body.classList.remove('anyun-sidebar-open');
+				} else {
+					body.classList.add('anyun-sidebar-open');
+				}
+				updateSidebarState();
+				return;
+			}
+			if (body.classList.contains('anyun-sidebar-collapsed')) {
+				body.classList.remove('anyun-sidebar-collapsed');
 			} else {
-				$('.has-sub ul').each(function(id, ele) {
-					var _that = $(this);
-					if (_this.find('ul')[0] != ele) {setTimeout(function() {_that.attr('style', '')}, 300);}
-				})
+				body.classList.add('anyun-sidebar-collapsed');
+			}
+			localStorage.setItem('yaozhenSidebarCollapsed', body.classList.contains('anyun-sidebar-collapsed') ? '1' : '0');
+			updateSidebarState();
+		}
+		sidebarToggle.addEventListener('click', toggleSidebar);
+		sidebarLogo.addEventListener('click', function (event) {
+			event.preventDefault();
+			toggleSidebar();
+		});
+		if (!isMobile() && localStorage.getItem('yaozhenSidebarCollapsed') === '1') {
+			body.classList.add('anyun-sidebar-collapsed');
+		}
+		updateSidebarState();
+		overlay.addEventListener('click', function () {
+			closeSidebar();
+			updateSidebarState();
+		});
+		window.addEventListener('resize', function () {
+			if (!isMobile()) closeSidebar();
+			updateSidebarState();
+		});
+
+		document.querySelectorAll('a.smooth').forEach(function (link) {
+			link.addEventListener('click', function (event) {
+				var target = document.querySelector(link.getAttribute('href'));
+				if (!target) return;
+				event.preventDefault();
+				target.scrollIntoView({behavior: 'smooth', block: 'start'});
+				closeSidebar();
+			});
+		});
+
+		document.querySelectorAll('.anyun-search-tabs button').forEach(function (tab) {
+			tab.addEventListener('click', function () {
+				document.querySelectorAll('.anyun-search-tabs button').forEach(function (item) { item.classList.remove('active'); });
+				document.querySelectorAll('[data-group-panel]').forEach(function (panel) { panel.classList.add('is-hidden'); });
+				tab.classList.add('active');
+				var panel = document.querySelector('[data-group-panel="' + tab.dataset.group + '"]');
+				panel.classList.remove('is-hidden');
+				panel.querySelector('button').click();
+			});
+		});
+
+		document.querySelectorAll('.anyun-search-engines button').forEach(function (engine) {
+			engine.addEventListener('click', function () {
+				document.querySelectorAll('.anyun-search-engines button').forEach(function (item) { item.classList.remove('active'); });
+				engine.classList.add('active');
+				form.action = engine.dataset.action;
+				input.name = engine.dataset.name;
+				input.placeholder = engine.dataset.placeholder;
+				input.focus();
+			});
+		});
+
+		form.addEventListener('submit', function (event) {
+			if (!input.value.trim()) {
+				event.preventDefault();
+				input.focus();
+				return;
+			}
+			if (!input.name) {
+				event.preventDefault();
+				window.open(form.action + encodeURIComponent(input.value.trim()), '_blank');
 			}
 		});
-		$('a.smooth').click(function(ev) {
-			ev.preventDefault();
-			public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
-			ps_destroy();
-			$('html, body').animate({scrollTop : $($(this).attr('href')).offset().top - 30}, {duration : 500,easing : 'swing'});
+
+		window.addEventListener('scroll', function () {
+			goTop.classList.toggle('show', window.pageYOffset > 320);
 		});
-	});
+		goTop.addEventListener('click', function () { window.scrollTo({top: 0, behavior: 'smooth'}); });
+	})();
 	</script>
 </body>
 </html>

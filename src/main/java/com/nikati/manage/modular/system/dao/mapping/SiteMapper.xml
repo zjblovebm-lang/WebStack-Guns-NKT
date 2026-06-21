@@ -4,14 +4,26 @@
 <mapper namespace="com.nikati.manage.modular.system.dao.SiteMapper">
 
     <select id="selectByPrimaryKey" resultType="com.nikati.manage.modular.system.model.Site" parameterType="java.lang.Integer">
-        select s.*,c.title categoryTitle
+        select s.id, s.category_id, s.title,
+        case
+            when s.thumb like 'http%' then concat('/static/img/sites/site-', lpad(s.id, 4, '0'),
+                case when s.thumb like '%.ico%' then '.ico' else '.png' end)
+            else s.thumb
+        end thumb,
+        s.description, s.url, s.create_time, s.update_time, c.title categoryTitle
         from site s left join category c on s.category_id = c.id
         where s.id = #{id}
     </select>
 
 
     <select id="getList" resultType="com.nikati.manage.modular.system.model.Site" parameterType="map">
-        select s.*,c.title categoryTitle
+        select s.id, s.category_id, s.title,
+        case
+            when s.thumb like 'http%' then concat('/static/img/sites/site-', lpad(s.id, 4, '0'),
+                case when s.thumb like '%.ico%' then '.ico' else '.png' end)
+            else s.thumb
+        end thumb,
+        s.description, s.url, s.create_time, s.update_time, c.title categoryTitle
         from site s left join category c on s.category_id = c.id
         where 1=1
         <if test="title != null and title != ''">
@@ -23,6 +35,7 @@
         <if test="categoryId != null and categoryId != 0">
             and (s.category_id = #{categoryId} or s.category_id in ( select id from category where parent_id = #{categoryId} ))
         </if>
+        order by s.id
         <if test="offset != null">LIMIT #{offset},#{size}</if>
     </select>
 

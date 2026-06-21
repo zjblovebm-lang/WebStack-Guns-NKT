@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">尧瑧科技</title>
+  <defs>
+    <linearGradient id="bg" x1="10" y1="8" x2="88" y2="88" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07152f"/>
+      <stop offset="1" stop-color="#16092f"/>
+    </linearGradient>
+    <linearGradient id="neon" x1="18" y1="20" x2="78" y2="77" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#23e6ff"/>
+      <stop offset=".52" stop-color="#6567ff"/>
+      <stop offset="1" stop-color="#ff3fd1"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="2.8" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect x="3" y="3" width="90" height="90" rx="25" fill="url(#bg)"/>
+  <path d="M18 22h14l16 18 16-18h14L54 51v23H42V51z" fill="none" stroke="url(#neon)" stroke-width="7" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M26 68h42L31 28h39" fill="none" stroke="url(#neon)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="M17 31V18h13M66 78h13V65" fill="none" stroke="#77f6ff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/>
+</svg>
